@@ -1,0 +1,41 @@
+group 'se.ndssoft.mini_ml'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+    dependencies {
+        implementation 'com.google.guava:guava:20.0'
+        api 'com.google.firebase:firebase-ml-vision:24.0.1'
+        implementation 'com.google.firebase:firebase-ml-vision-object-detection-model:19.0.3'
+        api 'com.google.firebase:firebase-ml-vision-image-label-model:19.0.0'
+        api "androidx.exifinterface:exifinterface:1.0.0"
+    }
+}
